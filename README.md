@@ -40,35 +40,35 @@ end
 To build an Ubuntu 18.04 box for only the VirtualBox provider
 
 ```
-$ cd ubuntu
+$ cd packer_templates/ubuntu
 $ packer build -only=virtualbox-iso ubuntu-18.04-amd64.json
 ```
 
-To build Debian 10.5 32bit boxes for all possible providers (simultaneously)
+To build Debian 10.6 32bit boxes for all possible providers (simultaneously)
 
 ```
-$ cd debian
-$ packer build debian-10.5-i386.json
+$ cd packer_templates/debian
+$ packer build debian-10.6-i386.json
 ```
 
 To build CentOS 7.7 boxes for all providers except VMware and Parallels
 
 ```
-$ cd centos
+$ cd packer_templates/centos
 $ packer build -except=parallels-iso,vmware-iso centos-7.7-x86_64.json
 ```
 
 To use an alternate mirror
 
 ```
-$ cd fedora
+$ cd packer_templates/fedora
 $ packer build -var 'mirror=http://mirror.utexas.edu/fedora/linux' fedora-31-x86_64.json
 ```
 
 To build a Windows 10 Enterprise Gen 2 box for the Hyper-V provider
 
 ```
-$ cd windows
+$ cd packer_templates/windows
 $ packer build windows-10gen2.json
 ```
 
@@ -109,7 +109,6 @@ Hyper-V Gen 2 VMs do not support floppy drives. If you previously provided resou
 - `autounattend.xml`: The Gen 2 `autounattend.xml` file supports EFI partitions. Update the `autounattend.xml` with the correct Windows version for your systems and ensure that the partitions are correct for your situation. You also need to manage the driver disk that holds the hyper-v guest services drivers and adjust the `autounattend.xml` file as appropriate.
 - `base_setup.ps1`
 
-
 #### macOS / OSX
 
 See this [wiki page](https://github.com/chef/bento/wiki/macOS)
@@ -121,6 +120,7 @@ Please use GitHub issues to report bugs, features, or other problems.
 ## Related projects
 
 * https://github.com/boxcutter
+* https://github.com/lavabit/robox
 * https://github.com/mcandre/packer-templates
 * https://github.com/timsutton/osx-vm-templates
 * https://github.com/ferventcoder/vagrant-windows-puppet/tree/master/baseboxes
@@ -143,7 +143,7 @@ macOS templates were adopted wholesale from [Fletcher Nichol's packer templates]
 - Author: Tom Duffield ([tom@chef.io](mailto:tom@chef.io))
 
 ```text
-Copyright 2012-2019, Chef Software, Inc. (<legal@chef.io>)
+Copyright 2012-2020, Chef Software, Inc. (<legal@chef.io>)
 Copyright 2011-2012, Tim Dysinger (<tim@dysinger.net>)
 
 Licensed under the Apache License, Version 2.0 (the "License");
